@@ -96,7 +96,7 @@ export const { handlers, signIn, signOut, auth} = NextAuth({
            token.role=user.role || 'user';
            token._id=user._id;
            token.accessToken=user.accessToken;
-           token.refreshToken=user.accessToken;
+           token.refreshToken=user.refreshToken;
 
 
         }

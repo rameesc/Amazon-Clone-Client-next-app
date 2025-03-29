@@ -5,7 +5,7 @@ import axios from "axios"
 import {getSession} from 'next-auth/react'
 
 
-const BASA_URL=`https://new.iamramees.com/api`
+const BASA_URL="https://new.iamramees.com/api"
 
 export  const BannerUrl="https://new.iamramees.com/public/uploads/banner"
 export const ProductImgUrl="https://new.iamramees.com/public/uploads/product"
