@@ -8,11 +8,14 @@ import { loginWithGoogle } from "./utils/goooglelogin"
  
 export const { handlers, signIn, signOut, auth} = NextAuth({
 
+  
+
   providers: [
     Google({
       clientId:process.env.AUTH_GOOGLE_ID,
       clientSecret:process.env.AUTH_GOOGLE_SECRET
     }),
+   
     Credentials({
      async authorize(credentials) {
 
@@ -51,7 +54,7 @@ export const { handlers, signIn, signOut, auth} = NextAuth({
 
       async session({token,session}){
        
-
+       
 
           // if(session.user || token){
 
@@ -119,7 +122,9 @@ export const { handlers, signIn, signOut, auth} = NextAuth({
           
          
 
-         return users 
+           if(users){
+            return users
+           }
         }
 
         if(account?.provider=="credentials"){
@@ -138,6 +143,7 @@ export const { handlers, signIn, signOut, auth} = NextAuth({
          
 
         }
+        return false
         
         
       }
