@@ -9,7 +9,7 @@ import { loginWithGoogle } from "./utils/goooglelogin"
 export const { handlers, signIn, signOut, auth} = NextAuth({
 
   
-
+  trustHost:true,
   providers: [
     Google({
       clientId:process.env.AUTH_GOOGLE_ID,
@@ -46,6 +46,21 @@ export const { handlers, signIn, signOut, auth} = NextAuth({
       },
     })
   ],
+
+  cookies:{
+    sessionToken:{
+      name: `__Secure-next-auth.session-token`,
+       options: {
+        domain:'.iamramees.com',
+        path: '/',
+        secure: true,
+     }
+    }
+  },
+   
+   
+   basePath:"/api/auth",
+   
   pages:{
     signIn:"/login",
     error:"/login"

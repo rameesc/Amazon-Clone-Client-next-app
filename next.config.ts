@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   //   domains:["lh3.googleusercontent.com","localhost"],
     
   // }
+  output:"standalone",
   images:{
     remotePatterns:[
       {
