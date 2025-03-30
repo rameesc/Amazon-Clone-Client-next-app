@@ -20,15 +20,15 @@ export const CategoryCard = ({category}:CategoryCardProsp) => {
   return (
     <div
       onClick={routerHandler}  
-     className='w-[100%]  hover:scale-[1.1]  h-[150px]  cursor-pointer flex flex-col justify-center items-center'>
+      className=' hover:scale-[1.1]   h-[200px]  cursor-pointer flex flex-col  mt-5'>
         <Image
           src={`${CategoryUrl}/${category?.image}`}
           alt='img'
           width={150}
           height={150}
-          className='w-[100px] h-[100px] rounded-md  border-2 border-borderColor '
+          className='min-w-[150px] h-[180px] rounded-md  border-2 border-[#0a08082c] '
         />
-        <span className='text-[20px] text-base '>{category?.displayName}</span>
+        <span className='text-[20px] text-base text-center '>{category?.displayName}</span>
     </div>
   )
 }

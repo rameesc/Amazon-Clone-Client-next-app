@@ -15,19 +15,28 @@ type ReviewItemType={
 export const ReviewItem = ({review}:ReviewItemType) => {
   return (
     <div className=' border-t-2 border-borderColor p-2'>
-    <div className='flex items-center justify-between gap-3'>
-        <div className='flex gap-3 items-center'>
-          <ProfialAvatar 
-          user={review?.user}
-         />
+     <div className='flex items-center justify-between gap-3 '>
+        <div className='flex gap-3 w-[100%]  items-center justify-between'>
+          <div className='flex items-center gap-3'>
+           <ProfialAvatar 
+           user={review?.user}
+           />
       
-         <p className='font-semibold'>{review?.user?.name}</p>
+           <p className='text-[16px] sm:font-bold'>{review?.user?.name}</p>
+         </div>
+         <div>
          <StarRating star={review?.star}/>
+
+         </div>
+        
        </div>
-       {dateFormatted(review?.createdAt && review?.createdAt)}
+       {/* <p className=' hidden sm:block'>{dateFormatted(review?.createdAt && review?.createdAt)}</p> */}
+     
     </div>
-    <div className='pl-[50px]'>
-      <p>{review?.comment}</p>
+    <div className='pl-[50px] flex flex-col'>
+      <p className='text-[14px] sm:text-[18px]'>{review?.comment}</p>
+     
+      <p className='text-[10px] self-end block sm:text-[15px]'>{dateFormatted(review?.createdAt && review?.createdAt)}</p>
     </div>
   </div>
   )

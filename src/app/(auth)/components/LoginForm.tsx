@@ -41,7 +41,7 @@ export const LoginForm = () => {
 
 
   return (
-    <div>
+    <div className=''>
         <FormCart
          title='Login'
          description="if you don't have  account"
@@ -49,7 +49,7 @@ export const LoginForm = () => {
         >
             <Form {...form}>
                 <form 
-                 className=' space-y-3 bg-white'
+                 className='  space-y-3 bg-white'
                  onSubmit={form.handleSubmit(onSubmit)}
                 >
                     

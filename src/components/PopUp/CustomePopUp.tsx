@@ -16,7 +16,7 @@ export const CustomePopUp = ({children,onClose,open}:CustomePopUpType) => {
     <div className={clsx(' fixed top-0 left-0 z-10 w-[100%] h-screen bg-[#00000065]',
         open?'block':'hidden'
     )}>
-        <div className=' rounded-lg absolute inset-[50%] p-5 bg-white w-[400px] h-[500px] translate-x-[-50%] translate-y-[-50%]'>
+        <div className=' rounded-lg absolute inset-[50%] p-5 bg-white w-[100%] sm:w-[400px] h-[500px] translate-x-[-50%] translate-y-[-50%]'>
             <div className='absolute top-[30px] p-5'>
               {children}
             </div>

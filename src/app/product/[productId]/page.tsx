@@ -15,7 +15,7 @@ const SingleProductPage =async () => {
     <div>
         <SingleProduct/>
         <div className='flex flex-col  items-center'>
-          <div className='w-containerW mt-[50px]'>
+          <div className='w-[95%] sm:w-containerW mt-[50px]'>
             <div>
               <YoutubeVideos/>
             </div>

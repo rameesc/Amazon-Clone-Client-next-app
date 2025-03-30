@@ -8,7 +8,11 @@ export const middleware=async(request:NextRequest)=>{
   const user=  await auth()
   const {nextUrl}=request
 
-  const isLoggedIn=!!user
+  
+
+  const isLoggedIn=!!user?.user
+
+  
   
 
   if(!isLoggedIn && protectedRouter.includes(nextUrl.pathname)){

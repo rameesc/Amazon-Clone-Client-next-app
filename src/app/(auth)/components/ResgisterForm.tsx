@@ -29,6 +29,8 @@ const ResgisterForm = () => {
 
     const onSubmit=(values:z.infer<typeof registerValidation>)=>{
 
+        console.log(values)
+
         mutate(values)
     }
   return (

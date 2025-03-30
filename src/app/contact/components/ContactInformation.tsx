@@ -8,12 +8,12 @@ export const ContactInformation = () => {
     const phoneNumber='917034493948'
     const message='Hello, I would like to chat with you!'
   return (
-    <div className='border-2 border-borderColor rounded-lg p-5 space-y-3'>
+    <div className=' border-2 border-borderColor rounded-lg p-5 space-y-3'>
         <div>
             <h1 className='text-[20px] font-semibold'>Contact Us</h1>
         </div>
         <div>
-            <div className='flex gap-2'>
+            <div className='flex gap-2 flex-wrap sm:flex-nowrap'>
               <b>Email:</b>
               <span>shopping@gmail.com</span>
             </div>
@@ -30,7 +30,7 @@ export const ContactInformation = () => {
             <div>
               <b>Social Media:</b>
             </div>
-            <div className='flex gap-3'>
+            <div className='flex gap-3 flex-wrap'>
               <div className='icon_border hover:bg-blue hover:text-white'>
                <a target='_blank' href="https://www.facebook.com/">
                 <span><FaFacebook size={20}/></span>

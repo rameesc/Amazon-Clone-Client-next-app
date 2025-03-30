@@ -65,14 +65,14 @@ export const SingleProduct = () => {
         <div className='w-containerW  mt-[80px] flex gap-5  flex-wrap dm:flex-nowrap'>
          
            <div className='flex flex-col gap-3'>
-              <div className=' flex gap-3'>
-                <div className='flex flex-col gap-3 '>
+              <div className=' flex gap-3 sm:flex-row flex-col justify-center'>
+                <div className='flex flex-row sm:flex-col gap-3  order-2'>
                   {data?.images?.map((item,index)=>(
                    <Image
                       key={item?._id}
                       onClick={()=>SetCurrentImage(index)}
                       src={`${ProductImgUrl}/${item?.medium}`}
-                      className={clsx(` rounded-md`,
+                      className={clsx(` rounded-md w-[50px] h-[50px]  sm:w-[100px] sm:h-[100px]`,
                         currentImage==index ?'border-[4px] border-blue':''
                       )}
                       alt='image'
@@ -81,10 +81,10 @@ export const SingleProduct = () => {
                     />
                   ))}
                 </div>
-                <div>
+                <div className='w-[100%] flex justify-center items-center order-1'>
                    <Image
                       src={`${ProductImgUrl}/${data?.images[currentImage].large}`}
-                      className='w-[400px]  rounded-md h-[400px] object-contain'
+                      className=' w-[90%]  sm:w-[400px]  rounded-md h-[400px] object-contain '
                       alt='image'
                       width={100}
                       height={100}
@@ -94,7 +94,7 @@ export const SingleProduct = () => {
                 </div>
 
               </div>
-              <div className='flex gap-3'>
+              <div className='flex gap-3 flex-col mt-5 sm:flex-row'>
               {data?.quantity && data?.quantity > 0  ?  <>
                 <CustomeBtn 
                    onclick={buyNowHandler}
@@ -141,7 +141,7 @@ export const SingleProduct = () => {
 
               </div>
            </div>
-           <div>
+           <div className='mt-10 sm:mt-0'>
                <div>
                  <h1 className='text-[25px] font-medium'>{data?.name}</h1>
                </div>
@@ -149,7 +149,7 @@ export const SingleProduct = () => {
                 <div>
                   <p className=' text-Primary font-bold tracking-wide'>Special Price</p>
                 </div>
-                 <div className='flex gap-3 items-center'>
+                 <div className='flex gap-3  flex-col sm:flex-row sm:items-center '>
                    <p className='text-[25px] font-semibold'>{numberFormatted(data?.price as number,data?.discountRate as number)}</p>
                    <p className=' line-through text-gray'>{numberFormatted(data?.price as number,0)}</p>
                    <p className='text-Primary font-semibold text-[18px]'>{data?.discountRate && data?.discountRate + '%'}</p>

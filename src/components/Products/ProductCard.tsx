@@ -90,7 +90,7 @@ export const ProductCard = ({image,price,discount,discription,productName,_id,ra
             <div className=' font-thin text-gray' dangerouslySetInnerHTML={{__html: discription?discription.substring(0,85)+'...' : 'no discription'}}/>
         </div>
         
-        <div className='flex justify-center items-center gap-5 pt-5 pb-5'>
+        <div className='flex justify-center items-center gap-5 pt-5 pb-5 flex-col sm:flex-row'>
             <div>
                 <p className='  font-semibold text-gray'>{numberFormatted(price,discount)}</p>
             </div>

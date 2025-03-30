@@ -23,7 +23,7 @@ export default  function Home() {
        <ServiceItems/>
        <WhiteSpace/>
        <ProductCategory/>
-       
+       <WhiteSpace/>
        <FeatureProduct/>
       
       

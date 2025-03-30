@@ -1,24 +1,22 @@
 'use client'
 
 
-import React, { useRef } from 'react'
-import {Swiper,SwiperSlide} from "swiper/react"
-import {Navigation,Pagination} from 'swiper/modules'
-import {Swiper as SwiperType} from "swiper"
+import React from 'react'
+
+
 import "swiper/css"
 import "swiper/css/navigation"; // Optional: For navigation buttons
 import "swiper/css/pagination"; // Optional: For pagination
 import { useQueryAllCategory } from '@/hooks/useQueryCategory'
 import { CategoryCard } from './CategoryCard'
-import { CustomeBtn } from '../Button/CustomeBtn'
-import { FaAngleLeft } from "react-icons/fa";
-import { FaAngleRight } from "react-icons/fa";
+
 import { ProductItemTitle } from './ProductItemTitle'
 import { CategorySkelton } from './CategorySkelton'
 
+
 export const ProductCategory = () => {
 
-    const swiperRef=useRef<SwiperType| null>(null)
+    
     const {data,isPending}=useQueryAllCategory()
 
     
@@ -33,8 +31,21 @@ export const ProductCategory = () => {
     <div className='flex justify-center flex-col items-center'>
         <div className='w-containerW'>
          <ProductItemTitle title='Categories'/>
+
+          <div className='w-[100%] relative bg-white flex justify-start gap-4 overflow-y-auto scrollbar-hide no-scrollbar'>
+          <div className="absolute left-0 top-0  h-full w-[50px] z-10   pointer-events-none bg-gradient-to-r from-[#fff] " />
+          <div className="absolute  right-0 top-0  h-full w-[50px] z-10   pointer-events-none bg-gradient-to-l from-[#fff]  " />
+    
+           {data?.map((item,index)=>(
+                    
+                      <CategoryCard key={index} category={item}/>
+                  
+                    
+                ))}
+          </div>
         </div>
-        <div className='w-[70%] relative mt-[50px]'>
+      
+        {/* <div className='w-[70%] relative mt-[50px]'>
            
             <Swiper
               breakpoints={{
@@ -71,7 +82,7 @@ export const ProductCategory = () => {
             </CustomeBtn>
           
             
-        </div>
+        </div> */}
     </div>
   )
 }
