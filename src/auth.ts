@@ -13,7 +13,13 @@ export const { handlers, signIn, signOut, auth} = NextAuth({
   providers: [
     Google({
       clientId:process.env.AUTH_GOOGLE_ID,
-      clientSecret:process.env.AUTH_GOOGLE_SECRET
+      clientSecret:process.env.AUTH_GOOGLE_SECRET,
+      authorization:{
+        prompt: "consent",
+        access_type: "offline",
+        response_type: "code",
+        hd: "*", // Remove or specify domains if you want to restrict
+      }
     }),
    
     Credentials({
@@ -123,10 +129,17 @@ export const { handlers, signIn, signOut, auth} = NextAuth({
 
       async signIn({user,account,profile}){
 
+        
+
         if(account?.provider=="google" && profile?.email){
           const {email,name}=user
           const isUser=await getUserByEmail(email as string)
 
+          if (!email) {
+            console.error('Google sign-in missing email');
+            return false;
+          }
+          
           
 
           if(isUser){
@@ -137,9 +150,11 @@ export const { handlers, signIn, signOut, auth} = NextAuth({
           
          
 
-           if(users){
-            return users
+           if(!users){
+            return false
            }
+
+           return true
         }
 
         if(account?.provider=="credentials"){
@@ -158,6 +173,8 @@ export const { handlers, signIn, signOut, auth} = NextAuth({
          
 
         }
+        
+       
         return false
         
         
